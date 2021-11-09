@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PATTERN_SELECTOR = exports.PATTERN_CLASSNAME = exports.PATTERN_CLASS_DIRECTIVE = exports.PATTERN_CLASS_SELECTOR = exports.PATTERN_IMPORT = exports.PATTERN_STYLE = exports.PATTERN_PATH_UNALLOWED = exports.PATTERN_MODULE = void 0;
+exports.PATTERN_MODULE = /\$(style)?\.(:?[\w\d-]*)/gm;
+exports.PATTERN_PATH_UNALLOWED = /[<>:"/\\|?*]/g;
+exports.PATTERN_STYLE = /<style(\s[^]*?)?>([^]*?)<\/style>/gi;
+exports.PATTERN_IMPORT = /(?<!\/\/\s*)import\s*(?:(.+)\s+from\s+)?['|"](.+?(s?css))['|"];?/gm;
+exports.PATTERN_CLASS_SELECTOR = /\.(.+?(?=\W)+)(?![-_])/g;
+exports.PATTERN_CLASS_DIRECTIVE = (className) => new RegExp(`<.+\\s*class:(${className})\\b`, 'gm');
+exports.PATTERN_CLASSNAME = (className) => new RegExp(`\\.(${className})\\b(?![-_])`, 'gm');
+exports.PATTERN_SELECTOR = (className) => new RegExp(`\\S*\\.(${className})\\b[^{\\s]*`, 'gm');
