@@ -21,7 +21,8 @@
     "lint": "eslint --ext .ts --fix ./src",
     "format": "prettier --write --loglevel warn ./{src,test}",
     "test": "jest",
-    "prepublishOnly": "npm run test && npm run build"
+    "prepublishOnly": "npm run test && npm run build",
+    "install": "npm run build"
   },
   "license": "MIT",
   "main": "dist/index.js",
