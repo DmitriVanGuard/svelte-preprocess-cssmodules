@@ -21,7 +21,7 @@ const parseStyle = (content: string, filename: string, cssModuleList: CSSModuleL
 
       return generatedClass.indexOf(':global(') !== -1
         ? generatedClass
-        : `:global(${generatedClass})`;
+        : `:global(${generatedClass})`.replace(',', '') + (generatedClass.includes(',') ? ',' : '');
     });
   });
 
