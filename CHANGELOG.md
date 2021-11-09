@@ -1,5 +1,6 @@
 # Svelte preprocess CSS Modules, changelog
 
+## 1.3.3
 ## 1.3.2 (Jan 4, 2021)
 Fix attempting import from `node_modules` packages [issue #10](https://github.com/micantoine/svelte-preprocess-cssmodules/issues/10) - [pull request #11](https://github.com/micantoine/svelte-preprocess-cssmodules/pull/11)
 
