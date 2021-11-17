@@ -14,10 +14,12 @@ const parseStyle = (content: string, filename: string, cssModuleList: CSSModuleL
 
   Object.keys(cssModuleList).forEach((className) => {
     parsedContent = parsedContent.replace(PATTERN_SELECTOR(className), (match) => {
-      const generatedClass = match.replace(
+      let generatedClass = match.replace(
         PATTERN_CLASSNAME(className),
         () => `.${cssModuleList[className]}`
       );
+
+      generatedClass = generatedClass.replace('+', '\\+');
 
       return generatedClass.indexOf(':global(') !== -1
         ? generatedClass
