@@ -9,7 +9,7 @@ const parseStyle = (content, filename, cssModuleList) => {
     Object.keys(cssModuleList).forEach((className) => {
         parsedContent = parsedContent.replace(patterns_1.PATTERN_SELECTOR(className), (match) => {
             let generatedClass = match.replace(patterns_1.PATTERN_CLASSNAME(className), () => `.${cssModuleList[className]}`);
-            generatedClass = generatedClass.replace('+', '\\+');
+            generatedClass = generatedClass.replace(/\+/g, '\\+');
             return generatedClass.indexOf(':global(') !== -1
                 ? generatedClass
                 : `:global(${generatedClass})`.replace(',', '') + (generatedClass.includes(',') ? ',' : '');

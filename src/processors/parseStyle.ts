@@ -19,7 +19,7 @@ const parseStyle = (content: string, filename: string, cssModuleList: CSSModuleL
         () => `.${cssModuleList[className]}`
       );
 
-      generatedClass = generatedClass.replace('+', '\\+');
+      generatedClass = generatedClass.replace(/\+/g, '\\+');
 
       return generatedClass.indexOf(':global(') !== -1
         ? generatedClass
