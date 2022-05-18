@@ -174,6 +174,8 @@ const parseMarkup = async (
   // go through module $style syntax
   if (content.search(PATTERN_MODULE) !== -1) {
     parsedContent = parsedContent.replace(PATTERN_MODULE, (match, key, className) => {
+      if(match.startsWith('$.')) return '$.' + className
+      
       let replacement = '';
       if (!className.length) {
         throw new Error(
