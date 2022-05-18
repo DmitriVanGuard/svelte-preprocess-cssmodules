@@ -148,6 +148,8 @@ const parseMarkup = (content, filename, pluginOptions) => __awaiter(void 0, void
     // go through module $style syntax
     if (content.search(patterns_1.PATTERN_MODULE) !== -1) {
         parsedContent = parsedContent.replace(patterns_1.PATTERN_MODULE, (match, key, className) => {
+            if (match.startsWith('$.'))
+                return '$.' + className;
             let replacement = '';
             if (!className.length) {
                 throw new Error(`Invalid class name in file ${filename}.\n` +
